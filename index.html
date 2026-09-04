@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LeaseForU · Landing Ginecología · Preview</title>
+<title>LeaseForU · Landing Especialidades · Preview</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -25,7 +25,7 @@
     display: grid; place-items: center;
     padding: 40px 20px;
   }
-  .wrap { max-width: 720px; width: 100%; text-align: center; }
+  .wrap { max-width: 920px; width: 100%; text-align: center; }
   .tag {
     display: inline-block; padding: 6px 14px;
     border-radius: 20px; font-size: 11px; font-weight: 700;
@@ -41,43 +41,60 @@
   }
   .lead {
     font-size: 15px; color: rgba(255,255,255,0.72);
-    line-height: 1.7; max-width: 540px;
+    line-height: 1.7; max-width: 580px;
     margin: 0 auto 44px;
   }
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .section-title {
+    text-align: left; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin: 32px 0 14px;
+    padding-left: 4px;
+  }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .cards-2 { grid-template-columns: 1fr; }
   .card {
     display: flex; flex-direction: column; text-align: left;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 18px; padding: 26px 24px;
+    border-radius: 18px; padding: 22px 22px;
     text-decoration: none; color: inherit;
     transition: transform 0.3s, background 0.3s, border-color 0.3s;
   }
-  .card:hover {
+  .card:hover:not(.pending) {
     transform: translateY(-4px);
     background: rgba(255,255,255,0.08);
     border-color: rgba(29,161,242,0.5);
   }
+  .card.pending {
+    background: rgba(255,255,255,0.02);
+    border-style: dashed;
+    cursor: default;
+  }
   .card-tag {
     font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
     color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 10px;
+    display: inline-flex; align-items: center; gap: 6px;
   }
-  .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 18px; flex: 1; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  .dot.warn { background: #FBBF24; }
+  .dot.done { background: #22C55E; }
+  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; line-height: 1.25; }
+  .card p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 16px; flex: 1; }
   .card-cta {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 700; color: var(--blue);
+    font-size: 12px; font-weight: 700; color: var(--blue);
     transition: gap 0.3s;
   }
-  .card:hover .card-cta { gap: 10px; }
-  .card-cta svg { width: 14px; height: 14px; fill: currentColor; }
+  .card:hover:not(.pending) .card-cta { gap: 10px; }
+  .card.pending .card-cta { color: rgba(251,191,36,0.7); }
+  .card-cta svg { width: 12px; height: 12px; fill: currentColor; }
   .foot {
     margin-top: 44px; font-size: 12px;
     color: rgba(255,255,255,0.4); line-height: 1.7;
   }
   .foot a { color: rgba(255,255,255,0.6); text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.3); }
   .foot a:hover { color: var(--blue); border-color: var(--blue); }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     h1 { font-size: 28px; }
     .cards { grid-template-columns: 1fr; }
   }
@@ -86,25 +103,43 @@
 <body>
 <main class="wrap">
   <div class="tag">Preview · LeaseForU</div>
-  <h1>Landing <span class="accent">ginecología</span></h1>
+  <h1>Landings por <span class="accent">especialidad</span></h1>
   <p class="lead">
-    Preview de las dos páginas construidas para el vertical de ginecología:
-    la landing principal donde los médicos entran y cotizan, y la thank you
-    page que ven después de enviar el formulario.
+    Landings de captación de leads médicos, una por vertical de LeaseForU.
+    Todas comparten la misma estructura y componentes; cambian el copy,
+    los equipos y las imágenes específicas.
   </p>
 
+  <div class="section-title">Landings</div>
   <div class="cards">
     <a href="./ginecologia/" class="card">
-      <div class="card-tag">Landing principal</div>
-      <h3>Arrendamiento equipo médico ginecología</h3>
-      <p>Hero con video, cómo funciona el leasing, comparativa, 4 cards de equipos, formulario, testimonios y FAQ.</p>
+      <div class="card-tag"><span class="dot done"></span>Terminada</div>
+      <h3>Ginecología</h3>
+      <p>Hero, cómo funciona, comparativa, 4 equipos, formulario, testimonios, FAQ.</p>
       <span class="card-cta">Ver preview <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
     </a>
 
+    <a href="./radiologia/" class="card">
+      <div class="card-tag"><span class="dot warn"></span>Base lista · imágenes pendientes</div>
+      <h3>Radiología</h3>
+      <p>Copy adaptado. Equipos: Radiografía portátil, TAC, Resonador magnético, Arco en C. Imágenes de cards pendientes.</p>
+      <span class="card-cta">Ver preview <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+    </a>
+
+    <div class="card pending">
+      <div class="card-tag"><span class="dot warn"></span>Pendiente</div>
+      <h3>Cardiología</h3>
+      <p>Esperando brief con copy y las 4 imágenes de equipos. Carpeta creada en el repo.</p>
+      <span class="card-cta">Ver carpeta →</span>
+    </div>
+  </div>
+
+  <div class="section-title">Post-formulario</div>
+  <div class="cards cards-2">
     <a href="./typ/" class="card">
-      <div class="card-tag">Thank you page</div>
-      <h3>Solicitud recibida ginecólogo (a)</h3>
-      <p>Confirmación al enviar el formulario. Full-screen con check animado, mensaje, y fondo con imagen atenuada.</p>
+      <div class="card-tag"><span class="dot done"></span>Terminada</div>
+      <h3>Thank you page</h3>
+      <p>Solicitud recibida ginecólogo (a). Full-screen con check animado y mensaje. Sirve para las 3 landings ajustando el copy o creando 1 por especialidad.</p>
       <span class="card-cta">Ver preview <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
     </a>
   </div>
