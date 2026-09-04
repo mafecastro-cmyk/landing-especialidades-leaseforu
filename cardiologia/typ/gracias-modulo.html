@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias! Recibimos tu solicitud | Lease For U</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1DA1F2;
+      --blue-dark: #0B1D3A;
+      --blue-navy: #0E2550;
+      --blue-mid: #0277D9;
+      --white: #FFFFFF;
+      --gray-50: #F8FAFC;
+      --gray-200: #E2E8F0;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+      --font: 'Montserrat', sans-serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--gray-900); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: var(--font); cursor: pointer; border: none; }
+    ul { list-style: none; }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--gray-200);
+    }
+    .header-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 13px; font-weight: 600; color: var(--gray-700); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .header-logo img { height: 42px; display: block; }
+    .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--gray-900); }
+
+    /* ========== BUTTONS ========== */
+    .btn-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #0277D9 0%, #1DA1F2 50%, #0277D9 100%);
+      background-size: 200% 200%;
+      background-color: var(--blue-mid);
+      color: var(--white);
+      padding: 14px 40px; border-radius: 30px;
+      font-weight: 700; font-size: 15px;
+      transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(2,119,217,0.3);
+    }
+    .btn-pill:hover {
+      background: var(--blue-dark);
+      box-shadow: 0 8px 26px rgba(11,29,58,0.55);
+      transform: translateY(-2px);
+    }
+    .btn-pill:active { transform: translateY(0); }
+    .btn-ghost {
+      display: inline-block; padding: 14px 34px; border-radius: 30px;
+      border: 1.5px solid rgba(255,255,255,0.5); color: var(--white);
+      font-weight: 600; font-size: 15px; transition: all 0.3s ease;
+    }
+    .btn-ghost:hover { background: var(--white); color: var(--blue-dark); border-color: var(--white); }
+
+    /* ========== HERO GRACIAS ========== */
+    .gracias {
+      margin-top: 64px; position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #05122A 0%, #0B1D3A 55%, #12305A 100%);
+      padding: 96px 24px 96px; text-align: center;
+      min-height: calc(100vh - 64px - 52px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gracias::before {
+      content: ''; position: absolute; top: -180px; right: -140px;
+      width: 460px; height: 460px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(29,161,242,0.25) 0%, transparent 70%);
+    }
+    .gracias::after {
+      content: ''; position: absolute; bottom: -160px; left: -120px;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    }
+    .gracias-bg-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.09; z-index: 1;
+      mix-blend-mode: luminosity;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .gracias-scrim {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 0%, rgba(5,15,35,0.55) 100%);
+    }
+    .gracias:has(.btn-pill:hover) .gracias-bg-img { opacity: 0.20; }
+    .gracias-inner { position: relative; z-index: 3; max-width: 720px; margin: 0 auto; }
+    .check-circle {
+      width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 26px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      animation: pop-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+    }
+    .check-circle svg { width: 42px; height: 42px; fill: none; stroke: var(--white); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+    .check-circle svg path {
+      stroke-dasharray: 40; stroke-dashoffset: 40;
+      animation: draw-check 0.5s ease-out 0.6s forwards;
+    }
+    @keyframes pop-in {
+      0% { transform: scale(0.4); opacity: 0; }
+      60% { transform: scale(1.08); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes draw-check { to { stroke-dashoffset: 0; } }
+    @keyframes rise-up {
+      0% { transform: translateY(24px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .gracias h1 {
+      font-size: 40px; font-weight: 700; line-height: 1.1;
+      color: var(--white); margin-bottom: 16px;
+      animation: rise-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.75s both;
+    }
+    .gracias h1 .gradient-text {
+      background: linear-gradient(90deg, #FFFFFF 0%, #90CAF9 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gracias > .gracias-inner > p {
+      font-size: 15px; color: rgba(255,255,255,0.88); line-height: 1.7;
+      max-width: 560px; margin: 0 auto 32px; font-weight: 400;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+      animation: rise-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+    }
+    .gracias-btns {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      animation: rise-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) 1.05s both;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .check-circle, .gracias h1, .gracias > .gracias-inner > p, .gracias-btns { animation: none; }
+      .check-circle svg path { stroke-dashoffset: 0; }
+    }
+
+
+    /* ========== FOOTER ========== */
+    .footer { background: var(--blue-dark); color: rgba(255,255,255,0.4); text-align: center; padding: 20px; font-size: 12px; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .gracias h1 { font-size: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 20px; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .gracias { padding: 64px 24px 72px; }
+      .gracias h1 { font-size: 27px; }
+      .gracias-btns { flex-direction: column; align-items: center; }
+      .gracias-btns a { width: 100%; max-width: 320px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .gracias h1 { font-size: 23px; }
+      .check-circle { width: 72px; height: 72px; }
+      .check-circle svg { width: 34px; height: 34px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav">
+      <a href="https://www.leaseforu.com/quienes-somos" target="_blank" rel="noopener">Quiénes somos</a>
+      <a href="https://www.leaseforu.com/arrendamiento-de-equipo-medico" target="_blank" rel="noopener">Arrendamiento médico</a>
+      <a href="https://www.leaseforu.com/referidos" target="_blank" rel="noopener">Referidos</a>
+      <a href="https://www.leaseforu.com/blog" target="_blank" rel="noopener">Blog</a>
+    </nav>
+    <div class="header-logo">
+      <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/logo-lease4u-positivo.webp" alt="Lease For U">
+    </div>
+  </div>
+</header>
+
+<!-- HERO GRACIAS -->
+<section class="gracias">
+  <img class="gracias-bg-img" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/gracias-bg-radiologia.jpg" alt="">
+  <div class="gracias-scrim"></div>
+  <div class="gracias-inner">
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>
+    </div>
+    <h1><span class="gradient-text">Solicitud recibida cardiólogo (a)</span></h1>
+    <p>Gracias por compartirnos tus datos. En breve, nuestro equipo se pondrá en contacto contigo para continuar con el proceso de arrendamiento.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 Lease For U. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+// ========== HEADER SHADOW ON SCROLL ==========
+window.addEventListener('scroll', function() {
+  var h = document.querySelector('.header');
+  if (h) h.style.boxShadow = window.scrollY > 10 ? '0 2px 16px rgba(0,0,0,0.06)' : 'none';
+});
+
+// ========== HAMBURGER MENU ==========
+var ham = document.getElementById('hamburger');
+if (ham) {
+  ham.addEventListener('click', function() {
+    var nav = document.getElementById('nav');
+    if (nav) nav.classList.toggle('open');
+  });
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var nav = document.getElementById('nav');
+    if (nav) nav.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

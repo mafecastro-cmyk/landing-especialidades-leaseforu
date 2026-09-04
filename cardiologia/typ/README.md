@@ -1,5 +1,15 @@
-# Thank You Page - Cardiologia
+﻿# Thank You Page - Cardiologia
 
-Pendiente. Se creara junto con la landing de cardiologia, duplicando
-`../../ginecologia/typ/` o `../../radiologia/typ/` y cambiando el H1 a
-"Solicitud recibida cardiologo (a)".
+Duplicada de `../../radiologia/typ/` con el H1 adaptado:
+**Solicitud recibida cardiólogo (a)**.
+
+## Archivos
+
+| Archivo | Uso |
+|---|---|
+| `index.html` | Preview autocontenido (self-contained). |
+| `gracias-modulo.html` | Para pegar en modulo HubSpot. |
+| `gracias-modulo.js` | JS extraido. |
+| `assets/` | 2 archivos: logo y bg. |
+
+## Slug HubSpot: `/lp-gracias-cardiologia`
