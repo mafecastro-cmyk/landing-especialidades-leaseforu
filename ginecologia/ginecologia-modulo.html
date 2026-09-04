@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -189,6 +189,12 @@
       width: 100%; display: block;
       image-rendering: -webkit-optimize-contrast;
       image-rendering: high-quality;
+    }
+    .tabla-img .tabla-mobile { display: none; }
+    @media (max-width: 768px) {
+      .tabla-img { max-width: 480px; }
+      .tabla-img .tabla-desktop { display: none; }
+      .tabla-img .tabla-mobile { display: block; }
     }
 
     /* ========== EQUIPOS ========== */
@@ -567,7 +573,8 @@
     <h2 class="s-title"><span>Inversión inteligente</span> para tu práctica médica</h2>
     <p class="s-sub comparativa-sub">Descubre los beneficios del arrendamiento con Lease For U y compara cómo puede ayudarte<br class="br-desktop">a mantener tu liquidez mientras haces crecer tu consultorio.</p>
     <div class="tabla-img">
-      <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra.png" alt="Comparativa: Arrendar con Lease For U vs Crédito Bancario vs Compra de Contado">
+      <img class="tabla-desktop" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra.png" alt="Comparativa: Arrendar con Lease For U vs Crédito Bancario vs Compra de Contado">
+      <img class="tabla-mobile" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra-mobile.png" alt="Comparativa (mobile)">
     </div>
   </div>
 </section>
