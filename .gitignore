@@ -1,0 +1,16 @@
+﻿# archivos temporales de sistema
+.DS_Store
+Thumbs.db
+*.tmp
+
+# node/build artifacts (no aplica aqui pero por costumbre)
+node_modules/
+dist/
+.vscode/
+.idea/
+
+# NO tocar los videos pesados de testimonios â€” se suben al File Manager de HubSpot
+# testi-gerardo.mp4 (161 MB), testi-lorena.mp4 (57 MB), testi-ernesto.mp4 (20 MB)
+**/testi-gerardo.mp4
+**/testi-lorena.mp4
+**/testi-ernesto.mp4

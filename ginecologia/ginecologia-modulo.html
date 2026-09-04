@@ -1,0 +1,967 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrendamiento de equipo médico de ginecología | Lease For U</title>
+  <meta name="description" content="Renueva tu consultorio de ginecología con arrendamiento puro: mensualidades fijas 100% deducibles, de 12 a 60 meses y sin pago inicial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #1DA1F2;
+      --blue-dark: #0B1D3A;
+      --blue-navy: #0E2550;
+      --blue-mid: #0277D9;
+      --white: #FFFFFF;
+      --gray-50: #F8FAFC;
+      --gray-200: #E2E8F0;
+      --gray-400: #94A3B8;
+      --gray-500: #64748B;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+      --font: 'Montserrat', sans-serif;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--gray-900); line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { font-family: var(--font); cursor: pointer; border: none; }
+    ul { list-style: none; }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--gray-200);
+    }
+    .header-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 13px; font-weight: 600; color: var(--gray-700);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .header-logo img { height: 42px; display: block; }
+    .hamburger { display: none; background: none; border: none; flex-direction: column; gap: 5px; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--gray-900); }
+
+    /* ========== HERO ========== */
+    .hero {
+      margin-top: 64px; position: relative; min-height: 500px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .hero-bg video {
+      width: 100%; height: 114%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: rgba(11, 29, 58, 0.6);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 80px 24px; max-width: 820px;
+    }
+    .hero h1 {
+      font-size: 42px; font-weight: 700; color: var(--white);
+      line-height: 1.1; text-transform: uppercase;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(90deg, #FFFFFF 0%, #90CAF9 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.78); font-size: 19px; font-weight: 400;
+      margin: 20px auto 32px; line-height: 1.55; max-width: 780px;
+      text-wrap: pretty;
+    }
+    .br-desktop { display: inline; }
+    .s-title, .form-info h2, .gracias h1 { text-wrap: balance; }
+    .hero h1 { text-wrap: normal; }
+    p, .s-sub { text-wrap: pretty; orphans: 2; widows: 2; }
+    .btn-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #0277D9 0%, #1DA1F2 50%, #0277D9 100%);
+      background-size: 200% 200%;
+      color: var(--white);
+      padding: 14px 40px; border-radius: 30px;
+      font-weight: 700; font-size: 15px;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(2,119,217,0.3);
+    }
+    .btn-pill:hover {
+      background-position: 100% 0;
+      box-shadow: 0 6px 25px rgba(2,119,217,0.5);
+      transform: translateY(-2px);
+    }
+    .btn-pill:active { transform: translateY(0); }
+
+    /* ========== STATS ========== */
+    .stats-bar {
+      background: rgba(11,29,58,0.8);
+      padding: 28px 24px 24px;
+    }
+    .stats-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; justify-content: space-around; align-items: flex-start;
+      gap: 24px;
+    }
+    .stat { text-align: center; }
+    .stat-top { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 2px; }
+    .stat-num { font-size: 44px; font-weight: 700; color: var(--white); line-height: 1; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; line-height: 1.4; font-weight: 400; }
+
+    /* ========== SECTIONS ========== */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .badge {
+      display: inline-block; background: #E0F0FF; color: var(--blue-mid);
+      padding: 6px 16px; border-radius: 20px; font-size: 11px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .s-title { font-size: 34px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+    .s-title span { color: var(--blue-mid); }
+    .s-sub { font-size: 15px; color: var(--gray-500); max-width: 580px; line-height: 1.7; font-weight: 400; }
+
+    /* ========== QUÉ ES LEASING ========== */
+    .leasing { background: var(--white); padding-top: 56px; }
+    /* la stats-bar es un div sin espaciado extra debajo — evita hueco entre stats y leasing */
+    .stats-bar + section { padding-top: 56px; }
+    .leasing-grid {
+      display: grid; grid-template-columns: 1fr 1.05fr;
+      gap: 56px; align-items: center;
+    }
+    .leasing-text { text-align: left; }
+    .leasing-text .s-title { margin-bottom: 18px; }
+    .leasing-text p {
+      font-size: 15px; color: var(--gray-500); line-height: 1.8;
+      font-weight: 400; max-width: 480px;
+    }
+    .leasing-text .btn-pill { margin-top: 28px; }
+
+    /* rejilla escalonada de 4 imágenes */
+    .leasing-media { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .leasing-col { display: flex; flex-direction: column; gap: 16px; }
+    .leasing-col:last-child { padding-top: 44px; }
+    .lm-item {
+      position: relative; overflow: hidden; border-radius: 18px;
+      background: linear-gradient(160deg, #DCEBFA 0%, #B4D6F5 100%);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .lm-item:nth-child(odd) { background: linear-gradient(160deg, #0B1D3A 0%, #17406F 100%); }
+    .lm-item:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(11,29,58,0.16); }
+    .lm-tall { height: 250px; }
+    .lm-short { height: 190px; }
+    .lm-item img { width: 100%; height: 100%; object-fit: cover; }
+    /* leasing-02: correr el crop para que la cara de la doctora quede centrada */
+    .leasing-col:first-child .lm-short img { object-position: center 28%; }
+    .lm-item figcaption {
+      position: absolute; left: 14px; bottom: 12px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.75); text-transform: uppercase;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    }
+
+    /* ========== COMPARATIVA ========== */
+    .comparativa { background: var(--gray-50); }
+    .comparativa .section-inner { text-align: center; }
+    .comparativa .s-sub { margin: 0 auto 40px; max-width: 900px; }
+    .tabla-img {
+      max-width: 900px; margin: 0 auto;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .tabla-img img {
+      width: 100%; display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: high-quality;
+    }
+
+    /* ========== EQUIPOS ========== */
+    .equipos { background: var(--white); }
+    .equipos .section-inner { text-align: center; }
+    .equipos .s-sub { margin: 0 auto 40px; max-width: 760px; }
+    .equipos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .eq-card {
+      position: relative; display: block;
+      aspect-ratio: 260 / 400;
+      border-radius: 22px; overflow: hidden;
+      background: linear-gradient(165deg, #B4D6F5 0%, #E4F1FC 100%);
+      box-shadow: 0 4px 14px rgba(11,29,58,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .eq-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(11,29,58,0.22);
+    }
+    .eq-card > img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .eq-card > img[data-loaded]:not([data-loaded=""]) ~ .eq-empty { display: none; }
+    .eq-empty {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(11,29,58,0.35);
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .eq-cta {
+      position: absolute; left: 50%; bottom: 22px;
+      transform: translateX(-50%);
+      background: var(--white); color: var(--gray-900);
+      font-size: 13px; font-weight: 700;
+      padding: 11px 28px; border-radius: 24px;
+      box-shadow: 0 6px 18px rgba(11,29,58,0.28);
+      transition: background 0.2s, color 0.2s, transform 0.25s ease;
+      white-space: nowrap; z-index: 3;
+    }
+    .eq-card:hover .eq-cta {
+      background: var(--blue-mid); color: var(--white);
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    /* ========== FORMULARIO ========== */
+    .formulario {
+      background: linear-gradient(160deg, #0B1D3A 0%, #0277D9 100%);
+      padding: 72px 24px 0; overflow: hidden;
+    }
+    .form-grid {
+      max-width: 1050px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 40px; align-items: end;
+    }
+    .form-info { color: var(--white); position: relative; }
+    .form-info .tag { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 12px; font-weight: 400; font-style: italic; }
+    .form-info h2 {
+      font-size: 36px; font-weight: 700; line-height: 1.1; margin-bottom: 16px;
+    }
+    .form-info h2 .form-gradient {
+      background: linear-gradient(90deg, #FFFFFF 0%, #90CAF9 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .form-info > p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.7; font-weight: 400; }
+    .form-checks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .form-checks li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500;
+    }
+    .form-checks li .ck {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); color: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .form-doctors {
+      margin-top: 20px; position: relative;
+    }
+    .form-doctors img {
+      max-width: 100%; width: 480px;
+    }
+
+    .form-card {
+      background: var(--white); border-radius: 16px;
+      padding: 32px 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      margin-bottom: 72px;
+    }
+    .form-top { display: flex; justify-content: flex-end; gap: 16px; margin-bottom: 20px; font-size: 11px; color: var(--gray-400); font-weight: 500; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .fg { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+    .fg label { font-size: 12px; color: var(--gray-700); font-weight: 600; }
+    .fg input, .fg select, .fg textarea {
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 24px; padding: 12px 16px; color: var(--gray-900);
+      font-size: 13px; font-family: var(--font); outline: none;
+      transition: border-color 0.2s; font-weight: 400;
+    }
+    .fg input::placeholder { color: var(--gray-400); }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--blue); }
+    .fg select { appearance: none; }
+    .fg textarea { border-radius: 12px; resize: vertical; min-height: 80px; }
+    .phone-row { display: flex; gap: 8px; }
+    .phone-sel {
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 24px; padding: 12px 12px; font-size: 13px;
+      color: var(--gray-700); min-width: 80px; font-family: var(--font);
+    }
+    .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+    .radio-group label {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--gray-700); font-weight: 500; cursor: pointer;
+    }
+    .radio-group input[type="radio"] { accent-color: var(--blue); width: 16px; height: 16px; }
+    .btn-submit {
+      width: 100%; margin-top: 16px;
+      background: var(--blue); color: var(--white);
+      padding: 14px; border-radius: 30px;
+      font-weight: 700; font-size: 15px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: #0d8de0; }
+
+    /* ========== TESTIMONIOS ========== */
+    .testimonios { background: var(--white); }
+    .testimonios .section-inner { text-align: center; }
+    .rating-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 4px; }
+    .rating-num { font-size: 28px; font-weight: 700; }
+    .rating-stars { color: #2563EB; font-size: 22px; letter-spacing: 2px; }
+    .rating-sub { font-size: 13px; color: var(--gray-400); margin-bottom: 40px; font-weight: 400; }
+
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+    .testi-card {
+      background: var(--blue-dark); border-radius: 16px; overflow: hidden;
+      color: var(--white); transition: transform 0.3s;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .testi-card:hover { transform: translateY(-3px); }
+    .testi-img {
+      height: 160px; overflow: hidden; position: relative;
+      border-radius: 10px; margin: 10px 10px 0 10px;
+    }
+    .testi-img img, .testi-img video {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 10px;
+      cursor: pointer;
+    }
+    .video-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .video-modal.active { opacity: 1; pointer-events: all; }
+    .video-modal video {
+      max-width: 90vw; max-height: 85vh; border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .video-modal .modal-close {
+      position: absolute; top: 20px; right: 24px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); border: none;
+      color: white; font-size: 24px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .video-modal .modal-close:hover { background: rgba(255,255,255,0.3); }
+    .testi-img .play-overlay {
+      position: absolute; inset: 0; display: flex;
+      align-items: center; justify-content: center;
+      pointer-events: none; border-radius: 10px;
+    }
+    .testi-img .play-overlay .play-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(0,0,0,0.5); display: flex;
+      align-items: center; justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .testi-card:hover .play-overlay .play-btn {
+      transform: scale(1.1); background: rgba(2,119,217,0.8);
+    }
+    .play-overlay .play-btn svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
+    .testi-body { padding: 12px 16px 16px; }
+    .testi-role { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; font-style: italic; margin-bottom: 2px; }
+    .testi-name { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+    .testi-text { font-size: 11px; color: var(--white); line-height: 1.6; margin-bottom: 10px; text-align: justify; font-weight: 400; opacity: 0.75; }
+    .testi-stars { color: #FBBF24; font-size: 14px; letter-spacing: 2px; }
+
+    /* ========== FAQ ========== */
+    .faq-section { background: var(--gray-50); }
+    .faq-section .section-inner { max-width: 820px; text-align: center; }
+    .faq-list { text-align: left; }
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-q {
+      width: 100%; background: none; text-align: left;
+      padding: 18px 0; font-size: 15px; font-weight: 600;
+      color: var(--gray-900); display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .faq-q:hover { color: var(--blue-mid); }
+    .faq-plus {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--white); border: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--gray-400); transition: 0.3s; flex-shrink: 0;
+    }
+    .faq-item.open .faq-plus {
+      transform: rotate(45deg);
+      background: var(--blue-mid); color: var(--white); border-color: var(--blue-mid);
+    }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-a-body { padding-bottom: 20px; }
+    .faq-a p { font-size: 14px; color: var(--gray-500); line-height: 1.7; font-weight: 400; }
+    .faq-a p + p { margin-top: 10px; }
+    .faq-a h4 { font-size: 13px; font-weight: 700; color: var(--gray-900); margin: 14px 0 6px; }
+    .faq-a ul { margin-top: 6px; }
+    .faq-a ul li {
+      position: relative; padding-left: 20px; margin-bottom: 6px;
+      font-size: 14px; color: var(--gray-500); line-height: 1.6; font-weight: 400;
+    }
+    .faq-a ul li::before {
+      content: ''; position: absolute; left: 4px; top: 9px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--blue);
+    }
+    .faq-a ul li strong { color: var(--gray-700); font-weight: 600; }
+    .faq-a .faq-note { font-size: 13px; color: var(--gray-400); font-style: italic; margin-top: 8px; }
+
+    /* ========== CTA + FOOTER ========== */
+    .cta-bottom { text-align: center; padding: 48px 24px; background: var(--white); }
+    .footer { background: var(--blue-dark); color: rgba(255,255,255,0.4); text-align: center; padding: 20px; font-size: 12px; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 32px; }
+      .testi-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-inner { flex-wrap: wrap; justify-content: center; }
+      .equipos-grid { grid-template-columns: repeat(2, 1fr); }
+      .leasing-grid { grid-template-columns: 1fr; gap: 40px; }
+      .leasing-text p { max-width: none; }
+      .leasing-media { max-width: 620px; }
+      .lm-tall { height: 220px; }
+      .lm-short { height: 170px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 20px; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 26px; }
+      .s-title { font-size: 26px; }
+      .stats-inner { flex-direction: column; gap: 16px; align-items: center; }
+      .stat-num { font-size: 32px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-doctors { display: none; }
+      .leasing-col:last-child { padding-top: 0; }
+      .lm-tall, .lm-short { height: 180px; }
+      .br-desktop { display: none; }
+
+      /* Carrusel horizontal para equipos en mobile */
+      .equipos-grid {
+        display: flex; grid-template-columns: none;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        gap: 14px; padding: 4px 24px 16px; margin: 0 -24px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      }
+      .equipos-grid::-webkit-scrollbar { display: none; }
+      .eq-card { flex: 0 0 78%; scroll-snap-align: center; }
+
+      /* Carrusel horizontal para testimonios en mobile */
+      .testi-grid {
+        display: flex; grid-template-columns: none;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        gap: 14px; padding: 4px 16px 16px; margin: 0 -16px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch;
+        max-width: none;
+      }
+      .testi-grid::-webkit-scrollbar { display: none; }
+      .testi-card { flex: 0 0 82%; scroll-snap-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 22px; }
+      .section { padding: 48px 16px; }
+      .form-info h2 { font-size: 26px; }
+      .form-card { padding: 24px 20px; }
+      .lm-tall, .lm-short { height: 150px; }
+      .tabla-img { border-radius: 10px; }
+      .faq-q { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav">
+      <a href="#leasing">¿Qué es leasing?</a>
+      <a href="#arrendamiento">Comparativa</a>
+      <a href="#equipos">Equipos</a>
+      <a href="#formulario">Arrendar ahora</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-logo">
+      <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/logo-lease4u-positivo.webp" alt="Lease For U">
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><video autoplay muted loop playsinline preload="metadata"><source src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/hero-ginecologia.mp4" type="video/mp4"></video></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>La mejor opción para renovar tu <br><span class="gradient-text">consultorio de ginecología</span></h1>
+    <p>Arrendamiento puro para equipo médico de ginecología<br class="br-desktop">con mensualidades 100% deducibles de impuestos.</p>
+    <a href="#formulario" class="btn-pill">Arrendar ahora</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num"><span class="count" data-target="10" data-prefix="+">+10</span></div>
+      <div class="stat-label">Años de<br>experiencia</div>
+    </div>
+    <div class="stat">
+      <div class="stat-top">Hemos ayudado a</div>
+      <div class="stat-num"><span class="count" data-target="3000" data-prefix="+" data-format="comma">+3,000</span></div>
+      <div class="stat-label">médicos a nivel nacional</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="count" data-target="2500" data-prefix="+" data-format="comma">+2,500</span></div>
+      <div class="stat-label">millones de pesos en equipos<br>arrendados a médicos</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUÉ ES LEASING -->
+<section class="section leasing" id="leasing">
+  <div class="section-inner">
+    <div class="leasing-grid">
+
+      <div class="leasing-text">
+        <div class="badge">Leasing médico</div>
+        <h2 class="s-title">¿Cómo funciona el <span>leasing médico</span> para tu consultorio?</h2>
+        <p>Es el esquema financiero que te permite estrenar tecnología médica de alta gama mediante rentas mensuales fijas (de 12 a 60 meses). Mantienes la liquidez de tu práctica, deduces el gasto de impuestos al 100% y, al finalizar tu contrato, eliges si te quedas con el equipo o lo renovamos por la última versión del mercado.</p>
+        <a href="#formulario" class="btn-pill">Arrendar ahora</a>
+      </div>
+
+      <!-- REJILLA DE 4 IMÁGENES — sustituir por assets/leasing-01..04 -->
+      <div class="leasing-media">
+        <div class="leasing-col">
+          <figure class="lm-item lm-tall"><img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-01.jpg" alt=""></figure>
+          <figure class="lm-item lm-short"><img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-02.jpg" alt=""></figure>
+        </div>
+        <div class="leasing-col">
+          <figure class="lm-item lm-short"><img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-03.jpg" alt=""></figure>
+          <figure class="lm-item lm-tall"><img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-04.jpg" alt=""></figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section class="section comparativa" id="arrendamiento">
+  <div class="section-inner">
+    <h2 class="s-title"><span>Inversión inteligente</span> para tu práctica médica</h2>
+    <p class="s-sub comparativa-sub">Descubre los beneficios del arrendamiento con Lease For U y compara cómo puede ayudarte<br class="br-desktop">a mantener tu liquidez mientras haces crecer tu consultorio.</p>
+    <div class="tabla-img">
+      <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra.png" alt="Comparativa: Arrendar con Lease For U vs Crédito Bancario vs Compra de Contado">
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPOS -->
+<section class="section equipos" id="equipos">
+  <div class="section-inner">
+    <div class="badge">Arrendamiento médico</div>
+    <h2 class="s-title">Equipos de <span>ginecología y obstetricia</span><br>que podrías arrendar</h2>
+    <p class="s-sub">Financiamos la tecnología médica que elijas con el distribuidor de tu preferencia.</p>
+    <div class="equipos-grid">
+
+      
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-doppler-producto.png" alt="Ultrasonido ginecológico" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Ultrasonido</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-ultrasonido-producto.png" alt="Mamógrafo" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Mamógrafo</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-mamografo-producto.png" alt="Mesa de exploración" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Mesa de exploración</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-mesa-producto.png" alt="Doppler fetal" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Doppler fetal</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+    
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="formulario" id="formulario">
+  <div class="form-grid">
+    <div class="form-info">
+      <div class="tag">¿Listo para mejorar tu consultorio?</div>
+      <h2><span class="form-gradient">Llena el formulario y cotiza<br>tu equipo ginecológico</span></h2>
+      <p>Pronto uno de nuestros expertos se comunicará contigo para:</p>
+      <ul class="form-checks">
+        <li><span class="ck">✓</span> Asesorarte sobre el mejor equipo para tu consultorio.</li>
+        <li><span class="ck">✓</span> Ofrecerte una cotización personalizada.</li>
+        <li><span class="ck">✓</span> Resolver tus dudas.</li>
+      </ul>
+      <div class="form-doctors">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/contrato-alquiler-equipos-medicos.png" alt="Médicos">
+      </div>
+    </div>
+    <div class="form-card">
+      <div class="form-top">
+        <span>Aviso de privacidad</span>
+        <span>*Campos obligatorios</span>
+      </div>
+      <form id="demoForm">
+        <div class="form-row">
+          <div class="fg"><label>Nombre*</label><input type="text" placeholder="Nombre"></div>
+          <div class="fg"><label>Apellidos*</label><input type="text" placeholder="Apellidos"></div>
+        </div>
+        <div class="fg"><label>Correo electrónico*</label><input type="email" placeholder="correo@ejemplo.com"></div>
+        <div class="fg">
+          <label>Número de Whatsapp*</label>
+          <div class="phone-row">
+            <select class="phone-sel"><option>🇲🇽 +52</option><option>🇨🇴 +57</option><option>🇺🇸 +1</option></select>
+            <input type="tel" placeholder="Número" style="flex:1">
+          </div>
+        </div>
+        <div class="fg">
+          <label>¿Arrendarías como persona física o moral?*</label>
+          <div class="radio-group">
+            <label><input type="radio" name="tipo" value="fisica" checked> Persona física</label>
+            <label><input type="radio" name="tipo" value="moral"> Persona moral</label>
+          </div>
+        </div>
+        <div class="fg">
+          <label>¿Cuéntanos qué equipo necesitas?</label>
+          <textarea placeholder="Describe el equipo que necesitas..."></textarea>
+        </div>
+        <button type="button" class="btn-submit" id="btnSubmit">✉ Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section testimonios" id="testimonios">
+  <div class="section-inner">
+    <h2 class="s-title" style="text-align:center">¿Qué dicen <span>nuestros médicos</span>?</h2>
+    <div class="rating-row">
+      <span class="rating-num">4.6</span>
+      <span class="rating-stars">★★★★☆</span>
+    </div>
+    <p class="rating-sub">Esta ha sido la experiencia de<br>nuestros médicos en Lease For U</p>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-img">
+          <video muted loop playsinline poster="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-gerardo-poster.jpg"><source src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-gerardo.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 10 12"><polygon points="0,0 10,6 0,12"/></svg></div></div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-role">Médico urgenciólogo</div>
+          <div class="testi-name">Ernesto Chávez</div>
+          <div class="testi-text">El arrendamiento de Lease For U se convirtió en el brazo financiero para el Dr. Chávez durante la etapa más crucial de su proyecto. Al ser una opción ágil y accesible, le otorgó la liquidez necesaria para expandir sus servicios e infraestructura en sus primeros años de práctica médica.</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-img">
+          <video muted loop playsinline poster="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-lorena-poster.jpg"><source src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-lorena.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 10 12"><polygon points="0,0 10,6 0,12"/></svg></div></div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-role">Fisioterapeuta</div>
+          <div class="testi-name">DR. Lorena Goméz</div>
+          <div class="testi-text">Nuestra Dra. representa un caso emblemático de cómo la tecnología médica de alta gama transforma la rentabilidad de una clínica. Al integrar equipamiento avanzado mediante leasing, no solo optimizó sus tiempos de atención, sino que logró multiplicar de forma constante su volumen de consultas mes a mes.</div>
+          <div class="testi-stars">★★★★☆</div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-img">
+          <video muted loop playsinline poster="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-ernesto-poster.jpg"><source src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/testi-ernesto.mp4" type="video/mp4"></video>
+          <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 10 12"><polygon points="0,0 10,6 0,12"/></svg></div></div>
+        </div>
+        <div class="testi-body">
+          <div class="testi-role">Traumatólogo y ortopedista</div>
+          <div class="testi-name">Gerardo Campos</div>
+          <div class="testi-text">Para nuestro Dr., el arrendamiento médico se consolidó como el motor de crecimiento de su consultorio. Este esquema le permitió equiparse con tecnología de última generación, elevando la precisión de sus diagnósticos y brindando una atención de primer nivel a sus pacientes sin comprometer su flujo de caja.</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <button class="modal-close" id="modalClose">&times;</button>
+  <video controls id="modalVideo"><source src="" type="video/mp4"></video>
+</div>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="section-inner">
+    <div class="badge">Preguntas frecuentes</div>
+    <h2 class="s-title">¿Tienes <span>preguntas</span> sobre leasing<br>de equipos para ginecología?</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">¿Qué requisitos necesito para arrendar equipo de ginecología y obstetricia?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>Para iniciar el arrendamiento de equipos de ginecología y obstetricia con Lease For U debes contar con la documentación necesaria dependiendo de tu tipo de solicitante:</p>
+          <h4>Persona Física</h4>
+          <ul>
+            <li>Identificación oficial</li>
+            <li>Constancia de situación fiscal</li>
+            <li>Comprobante de domicilio</li>
+            <li>Últimos 3 estados de cuenta bancarios</li>
+          </ul>
+          <p class="faq-note">Nota: si trabajas en IMSS o ISSSTE, podrías omitir algunos documentos.</p>
+          <h4>Persona Moral</h4>
+          <ul>
+            <li>Acta constitutiva y RFC</li>
+            <li>Identificación del representante legal</li>
+            <li>Estados financieros</li>
+            <li>Acceso temporal a CIEC (opcional, pero agiliza el análisis)</li>
+            <li>Debe incluir al menos un médico como socio o accionista</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿El arrendamiento financiero es lo mismo que el arrendamiento puro?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>No. El arrendamiento financiero y el arrendamiento puro (operativo) no son lo mismo, aunque ambos implican usar un bien sin comprarlo de inmediato. Esta es la diferencia:</p>
+          <h4>Arrendamiento financiero</h4>
+          <ul>
+            <li>Es similar a un financiamiento a largo plazo.</li>
+            <li>El arrendatario asume casi todos los riesgos y beneficios del bien, incluyendo mantenimiento y depreciación.</li>
+            <li>Generalmente tiene una opción de compra al final del contrato por un valor residual previamente acordado.</li>
+            <li>Suele usarse cuando el objetivo es eventualmente adquirir el bien.</li>
+          </ul>
+          <h4>Arrendamiento puro (operativo)</h4>
+          <ul>
+            <li>Es un alquiler a largo plazo, pero sin intención de compra.</li>
+            <li>El arrendador mantiene la propiedad y los riesgos del bien (mantenimiento, seguros, depreciación).</li>
+            <li>Al final del contrato, el bien se devuelve al arrendador o se renueva el contrato.</li>
+            <li>Es ideal cuando el objetivo es solo usar el bien temporalmente, sin preocuparse por la propiedad.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Puedo renovar o cambiar mis equipos al terminar el contrato?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>Sí. Al finalizar nuestro contrato de arrendamiento de equipos de ginecología y obstetricia tienes diferentes opciones para elegir:</p>
+          <ul>
+            <li><strong>Renovar:</strong> podemos extender el contrato de alquiler con los mismos equipos.</li>
+            <li><strong>Cambio de equipo:</strong> puedes devolver el equipo ginecológico actual y acceder a un nuevo contrato para cambiarlo por uno más reciente o de referencia diferente, asegurando que tu consultorio siempre cuente con la última tecnología.</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Cómo se calculan los planes de leasing mensuales?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>Los planes de leasing mensuales se calculan basándose principalmente en el valor del equipo de ginecología y obstetricia, el plazo del contrato (a mayor plazo, menor el valor mensual), el valor residual estimado y la tasa de interés implícita.</p>
+          <p>Es importante destacar que estos arrendamientos son deducibles de impuestos, optimizando así la inversión para equipar tu consultorio ginecológico.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Tienen planes sin enganche?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>Podemos tomar tu primera mensualidad como tu pago inicial y reducir tu plazo contratado en un mes. Este beneficio es de los más populares entre nuestros clientes.</p>
+          <p>Recuerda que todos los pagos que hagas por concepto de leasing, pagos iniciales o anticipos son 100% deducibles.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Cuál es la tasa de interés del arrendamiento?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>En arrendamientos hablamos en términos de factor financiero, no de tasas de interés. Esto es el costo financiero por año de plazo contratado. El nuestro es sin duda uno de los más bajos del mercado. Pregunta a tu asesor aquí.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">¿Cuáles son los plazos?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-body">
+          <p>Puedes contratar desde 12 hasta 60 meses, con pago inicial cero. Recuerda que puedes también configurar valores residuales de hasta el 40%.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-bottom">
+  <a href="#formulario" class="btn-pill">Arrendar ahora</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 Lease For U. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+// ========== HEADER SHADOW ON SCROLL ==========
+window.addEventListener('scroll', function() {
+  var h = document.querySelector('.header');
+  if (h) h.style.boxShadow = window.scrollY > 10 ? '0 2px 16px rgba(0,0,0,0.06)' : 'none';
+});
+
+// ========== HAMBURGER MENU ==========
+var ham = document.getElementById('hamburger');
+if (ham) {
+  ham.addEventListener('click', function() {
+    var nav = document.getElementById('nav');
+    if (nav) nav.classList.toggle('open');
+  });
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    var nav = document.getElementById('nav');
+    if (nav) nav.classList.remove('open');
+  });
+});
+
+// ========== FAQ ACCORDION (altura calculada) ==========
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.parentElement;
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      var a = i.querySelector('.faq-a');
+      if (a) a.style.maxHeight = null;
+    });
+    if (!wasOpen) {
+      item.classList.add('open');
+      var panel = item.querySelector('.faq-a');
+      if (panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+  });
+});
+window.addEventListener('resize', function() {
+  var openPanel = document.querySelector('.faq-item.open .faq-a');
+  if (openPanel) openPanel.style.maxHeight = openPanel.scrollHeight + 'px';
+});
+
+// ========== ANIMATED COUNTERS ==========
+function animateCounters() {
+  var counters = document.querySelectorAll('.count');
+  counters.forEach(function(el) {
+    var target = parseInt(el.dataset.target);
+    var prefix = el.dataset.prefix || '';
+    var useComma = el.dataset.format === 'comma';
+    var duration = 2000;
+    var start = performance.now();
+    function update(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      var formatted = useComma ? current.toLocaleString('en-US') : current.toString();
+      el.textContent = prefix + formatted;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+var statsBar = document.querySelector('.stats-bar');
+if (statsBar) {
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounters();
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+  statsObserver.observe(statsBar);
+}
+
+// ========== VIDEO TESTIMONIAL MODAL ==========
+var modal = document.getElementById('videoModal');
+var modalVideo = document.getElementById('modalVideo');
+if (modal && modalVideo) {
+  document.querySelectorAll('.testi-img').forEach(function(img) {
+    var vid = img.querySelector('video');
+    if (!vid) return;
+    img.addEventListener('click', function() {
+      var src = vid.querySelector('source').src;
+      modalVideo.querySelector('source').src = src;
+      modalVideo.load();
+      modal.classList.add('active');
+      modalVideo.play();
+    });
+  });
+  function closeModal() {
+    modal.classList.remove('active');
+    modalVideo.pause();
+    modalVideo.currentTime = 0;
+  }
+  var closeBtn = document.getElementById('modalClose');
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+}
+
+
+// ========== SUBMIT DEMO -> THANK YOU PAGE ==========
+var btnSubmit = document.getElementById('btnSubmit');
+if (btnSubmit) {
+  btnSubmit.addEventListener('click', function() {
+    window.location.href = '/lp-gracias-ginecologia';
+  });
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
