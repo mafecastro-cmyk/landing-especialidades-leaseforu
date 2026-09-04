@@ -6,8 +6,8 @@ Landing page para captación de leads en el vertical de **ginecología** de [Lea
 
 Una vez habilitado GitHub Pages en este repo (ver más abajo), las páginas se pueden ver en:
 
-- 🏥 **Landing:** `https://mafecastro-cmyk.github.io/leaseforu-landing-ginecologia/ginecologia/`
-- ✅ **Thank you:** `https://mafecastro-cmyk.github.io/leaseforu-landing-ginecologia/typ/`
+- 🏥 **Landing:** `https://mafecastro-cmyk.github.io/landing-especialidades-leaseforu/ginecologia/`
+- ✅ **Thank you:** `https://mafecastro-cmyk.github.io/landing-especialidades-leaseforu/typ/`
 
 Ambos son **HTML autocontenidos** — todas las imágenes, el video del hero, los posters de testimoniales y hasta el logo van embebidos en base64. Se ven directo sin backend, sin dependencias externas.
 
