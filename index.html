@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeaseForU · Landing Ginecología · Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1DA1F2;
+    --blue-dark: #0B1D3A;
+    --blue-mid: #0277D9;
+    --white: #FFFFFF;
+    --gray-100: #F1F5F9;
+    --gray-500: #64748B;
+    --gray-900: #0F172A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    background: linear-gradient(155deg, #0B1D3A 0%, #12305A 60%, #1E4E93 100%);
+    color: var(--white);
+    display: grid; place-items: center;
+    padding: 40px 20px;
+  }
+  .wrap { max-width: 720px; width: 100%; text-align: center; }
+  .tag {
+    display: inline-block; padding: 6px 14px;
+    border-radius: 20px; font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    background: rgba(29,161,242,0.20); color: #90CAF9;
+    margin-bottom: 24px;
+  }
+  h1 { font-size: 42px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.5px; }
+  h1 .accent {
+    background: linear-gradient(90deg, #FFF 0%, #90CAF9 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .lead {
+    font-size: 15px; color: rgba(255,255,255,0.72);
+    line-height: 1.7; max-width: 540px;
+    margin: 0 auto 44px;
+  }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {
+    display: flex; flex-direction: column; text-align: left;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 18px; padding: 26px 24px;
+    text-decoration: none; color: inherit;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(29,161,242,0.5);
+  }
+  .card-tag {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); font-weight: 700; margin-bottom: 10px;
+  }
+  .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 18px; flex: 1; }
+  .card-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: var(--blue);
+    transition: gap 0.3s;
+  }
+  .card:hover .card-cta { gap: 10px; }
+  .card-cta svg { width: 14px; height: 14px; fill: currentColor; }
+  .foot {
+    margin-top: 44px; font-size: 12px;
+    color: rgba(255,255,255,0.4); line-height: 1.7;
+  }
+  .foot a { color: rgba(255,255,255,0.6); text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.3); }
+  .foot a:hover { color: var(--blue); border-color: var(--blue); }
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="tag">Preview · LeaseForU</div>
+  <h1>Landing <span class="accent">ginecología</span></h1>
+  <p class="lead">
+    Preview de las dos páginas construidas para el vertical de ginecología:
+    la landing principal donde los médicos entran y cotizan, y la thank you
+    page que ven después de enviar el formulario.
+  </p>
+
+  <div class="cards">
+    <a href="./ginecologia/" class="card">
+      <div class="card-tag">Landing principal</div>
+      <h3>Arrendamiento equipo médico ginecología</h3>
+      <p>Hero con video, cómo funciona el leasing, comparativa, 4 cards de equipos, formulario, testimonios y FAQ.</p>
+      <span class="card-cta">Ver preview <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+    </a>
+
+    <a href="./typ/" class="card">
+      <div class="card-tag">Thank you page</div>
+      <h3>Solicitud recibida ginecólogo (a)</h3>
+      <p>Confirmación al enviar el formulario. Full-screen con check animado, mensaje, y fondo con imagen atenuada.</p>
+      <span class="card-cta">Ver preview <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></span>
+    </a>
+  </div>
+
+  <div class="foot">
+    Deployment a HubSpot: ver <a href="https://github.com/mafecastro-cmyk/leaseforu-landing-ginecologia">repo en GitHub</a> ·
+    <a href="https://github.com/mafecastro-cmyk/leaseforu-landing-ginecologia/blob/main/CONVERSATION-LOG.md">historial de decisiones</a>
+  </div>
+</main>
+</body>
+</html>
