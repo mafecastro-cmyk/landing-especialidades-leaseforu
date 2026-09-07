@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -41,6 +41,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 24px;
     }
+    .header-inner.header-logo-only { justify-content: center; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a { font-size: 13px; font-weight: 600; color: var(--gray-700); transition: color 0.2s; }
     .nav-links a:hover { color: var(--blue); }
@@ -179,14 +180,7 @@
 
 <!-- HEADER -->
 <header class="header">
-  <div class="header-inner">
-    <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
-    <nav class="nav-links" id="nav">
-      <a href="https://www.leaseforu.com/quienes-somos" target="_blank" rel="noopener">Quiénes somos</a>
-      <a href="https://www.leaseforu.com/arrendamiento-de-equipo-medico" target="_blank" rel="noopener">Arrendamiento médico</a>
-      <a href="https://www.leaseforu.com/referidos" target="_blank" rel="noopener">Referidos</a>
-      <a href="https://www.leaseforu.com/blog" target="_blank" rel="noopener">Blog</a>
-    </nav>
+  <div class="header-inner header-logo-only">
     <div class="header-logo">
       <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/logo-lease4u-positivo.webp" alt="Lease For U">
     </div>
@@ -218,20 +212,6 @@ window.addEventListener('scroll', function() {
   if (h) h.style.boxShadow = window.scrollY > 10 ? '0 2px 16px rgba(0,0,0,0.06)' : 'none';
 });
 
-// ========== HAMBURGER MENU ==========
-var ham = document.getElementById('hamburger');
-if (ham) {
-  ham.addEventListener('click', function() {
-    var nav = document.getElementById('nav');
-    if (nav) nav.classList.toggle('open');
-  });
-}
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    var nav = document.getElementById('nav');
-    if (nav) nav.classList.remove('open');
-  });
-});
 </script>
 </body>
 </html>
