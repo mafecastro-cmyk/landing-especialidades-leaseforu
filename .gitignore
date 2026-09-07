@@ -14,3 +14,6 @@ dist/
 **/testi-gerardo.mp4
 **/testi-lorena.mp4
 **/testi-ernesto.mp4
+
+# Assets originales pesados (source files antes de optimizar)
+cardiologia/Assets/
