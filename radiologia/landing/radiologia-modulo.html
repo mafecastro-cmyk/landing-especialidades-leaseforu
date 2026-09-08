@@ -201,7 +201,7 @@
     .equipos { background: var(--white); }
     .equipos .section-inner { text-align: center; }
     .equipos .s-sub { margin: 0 auto 40px; max-width: 760px; }
-    .equipos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .equipos-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
     .eq-card {
       position: relative; display: block;
       aspect-ratio: 260 / 400;
@@ -436,7 +436,7 @@
       .hero h1 { font-size: 32px; }
       .testi-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-inner { flex-wrap: wrap; justify-content: center; }
-      .equipos-grid { grid-template-columns: repeat(2, 1fr); }
+      .equipos-grid { grid-template-columns: repeat(3, 1fr); }
       .leasing-grid { grid-template-columns: 1fr; gap: 40px; }
       .leasing-text p { max-width: none; }
       .leasing-media { max-width: 620px; }
@@ -512,7 +512,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"><img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/hero-radiologia.gif" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="hero-bg"><video autoplay muted loop playsinline poster="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/hero-radiologia-poster.jpg" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/hero-radiologia.mp4" type="video/mp4"></video></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>La mejor opción para renovar tu <br><span class="gradient-text">consultorio de radiología</span></h1>
@@ -588,31 +588,43 @@
     <p class="s-sub">Financiamos la tecnología médica que elijas con el distribuidor de tu preferencia.</p>
     <div class="equipos-grid">
 
-      
-      
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-tac-producto.png" alt="Tomógrafo computarizado (TAC)" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-rayos-x.png" alt="Rayos X" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Rayos X</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-tomografo.png" alt="Tomógrafo computarizado (TAC)" onload="this.dataset.loaded='true'" onerror="this.remove()">
         <div class="eq-empty">Tomógrafo (TAC)</div>
         <span class="eq-cta">Arrendar ahora</span>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-resonador-producto.png" alt="Resonador magnético (RM)" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-resonador.png" alt="Resonador magnético (RM)" onload="this.dataset.loaded='true'" onerror="this.remove()">
         <div class="eq-empty">Resonador magnético (RM)</div>
         <span class="eq-cta">Arrendar ahora</span>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-arco-en-c-producto.png" alt="Arco en C" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-arco-en-c.png" alt="Arco en C" onload="this.dataset.loaded='true'" onerror="this.remove()">
         <div class="eq-empty">Arco en C</div>
         <span class="eq-cta">Arrendar ahora</span>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-radiografia-portatil-producto.png" alt="Radiografía portátil" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-radiografia-portatil.png" alt="Radiografía portátil" onload="this.dataset.loaded='true'" onerror="this.remove()">
         <div class="eq-empty">Radiografía portátil</div>
         <span class="eq-cta">Arrendar ahora</span>
       </a>
+
+      <a href="#formulario" class="eq-card">
+        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-mesa-telemando.png" alt="Mesa de telemando" onload="this.dataset.loaded='true'" onerror="this.remove()">
+        <div class="eq-empty">Mesa de telemando</div>
+        <span class="eq-cta">Arrendar ahora</span>
+      </a>
+
+    
 
     
 
