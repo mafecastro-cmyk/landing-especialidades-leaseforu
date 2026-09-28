@@ -197,49 +197,92 @@
       .tabla-img .tabla-mobile { display: block; }
     }
 
-    /* ========== EQUIPOS ========== */
-    .equipos { background: var(--white); }
-    .equipos .section-inner { text-align: center; }
+    
+    /* ========== EQUIPOS (carrusel + cards edge-to-edge) ========== */
+    .equipos { background: var(--gray-50); overflow: hidden; }
+    .equipos .section-inner { text-align: center; position: relative; }
     .equipos .s-sub { margin: 0 auto 40px; max-width: 760px; }
-    .equipos-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+
+    .equipos-carousel { position: relative; margin: 0 -8px; }
+    .equipos-carousel .equipos-grid {
+      display: flex; grid-template-columns: none; gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 8px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .equipos-carousel .equipos-grid::-webkit-scrollbar { display: none; }
+    .equipos-carousel .eq-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
+
     .eq-card {
-      position: relative; display: block;
-      aspect-ratio: 260 / 400;
+      position: relative; display: flex; flex-direction: column;
+      aspect-ratio: 260 / 340;
+      padding: 10px 10px 14px;
       border-radius: 22px; overflow: hidden;
-      background: linear-gradient(165deg, #B4D6F5 0%, #E4F1FC 100%);
-      box-shadow: 0 4px 14px rgba(11,29,58,0.06);
+      background: var(--white);
+      box-shadow: 0 4px 20px rgba(11,29,58,0.08);
       transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
     }
-    .eq-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 44px rgba(11,29,58,0.22);
-    }
-    .eq-card > img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-      display: block;
-    }
-    .eq-card > img[data-loaded]:not([data-loaded=""]) ~ .eq-empty { display: none; }
-    .eq-empty {
-      position: absolute; inset: 0;
+    .eq-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(11,29,58,0.18); }
+    .eq-photo-wrap {
+      position: relative; flex: 1; min-height: 0;
+      border-radius: 16px; overflow: hidden;
+      background: linear-gradient(160deg, #0B1D3A 0%, #0277D9 100%);
       display: flex; align-items: center; justify-content: center;
-      color: rgba(11,29,58,0.35);
-      font-size: 13px; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase;
     }
-    .eq-cta {
-      position: absolute; left: 50%; bottom: 22px;
-      transform: translateX(-50%);
-      background: var(--white); color: var(--gray-900);
-      font-size: 13px; font-weight: 700;
-      padding: 11px 28px; border-radius: 24px;
-      box-shadow: 0 6px 18px rgba(11,29,58,0.28);
-      transition: background 0.2s, color 0.2s, transform 0.25s ease;
-      white-space: nowrap; z-index: 3;
+    .eq-card:nth-child(even) .eq-photo-wrap {
+      background: linear-gradient(160deg, #DCEBFA 0%, #B4D6F5 100%);
     }
-    .eq-card:hover .eq-cta {
-      background: var(--blue-mid); color: var(--white);
-      transform: translateX(-50%) translateY(-2px);
+    .eq-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .eq-footer {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 14px 6px 0;
+      flex-shrink: 0;
+    }
+    .eq-title {
+      font-size: 16px; font-weight: 500; line-height: 1.3;
+      color: var(--gray-900); letter-spacing: -0.2px;
+      text-align: left; text-wrap: balance;
+      margin: 0;
+      font-family: var(--font);
+    }
+
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--white); border: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(11,29,58,0.12);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+      z-index: 10; color: var(--blue-dark); padding: 0;
+    }
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--blue-mid); border-color: var(--blue-mid); color: var(--white);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .carousel-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .carousel-btn svg { width: 20px; height: 20px; }
+    .carousel-btn-prev { left: -12px; }
+    .carousel-btn-next { right: -12px; }
+
+    @media (max-width: 1024px) {
+      .equipos-carousel .eq-card { flex: 0 0 calc((100% - 32px) / 3); }
+      .carousel-btn-prev { left: 4px; }
+      .carousel-btn-next { right: 4px; }
+    }
+    @media (max-width: 768px) {
+      .equipos-carousel .eq-card { flex: 0 0 calc((100% - 16px) / 2); }
+      .carousel-btn { width: 38px; height: 38px; }
+      .carousel-btn svg { width: 16px; height: 16px; }
+    }
+    @media (max-width: 480px) {
+      .equipos-carousel .eq-card { flex: 0 0 78%; scroll-snap-align: center; }
+      .carousel-btn { display: none; }
     }
 
     /* ========== FORMULARIO ========== */
@@ -586,37 +629,84 @@
     <div class="badge">Arrendamiento médico</div>
     <h2 class="s-title">Equipos de <span>cardiología</span><br>que podrías arrendar</h2>
     <p class="s-sub">Financiamos la tecnología médica que elijas con el distribuidor de tu preferencia.</p>
-    <div class="equipos-grid">
+    <div class="equipos-carousel">
+      <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Ver equipos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="equipos-grid">
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-monitor-signos.png" alt="Monitor de signos vitales" onload="this.dataset.loaded='true'" onerror="this.remove()">
-        <div class="eq-empty">Monitor de signos vitales</div>
-        <span class="eq-cta">Arrendar ahora</span>
+        <div class="eq-photo-wrap">
+          <img class="eq-photo" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-ecocardiografo.png" alt="Ecocardiógrafo para arrendamiento médico">
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Ecocardiógrafo</h3>
+        </div>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-ultrasonido-cardio.png" alt="Ultrasonido con software para cardio" onload="this.dataset.loaded='true'" onerror="this.remove()">
-        <div class="eq-empty">Ultrasonido con software</div>
-        <span class="eq-cta">Arrendar ahora</span>
+        <div class="eq-photo-wrap">
+          <img class="eq-photo" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-ecg.png" alt="Electrocardiógrafo y máquina ECG para arrendamiento médico">
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Electrocardiógrafo / Máquina ECG</h3>
+        </div>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-electrocardiografo.png" alt="Electrocardiógrafo digital" onload="this.dataset.loaded='true'" onerror="this.remove()">
-        <div class="eq-empty">Electrocardiógrafo digital</div>
-        <span class="eq-cta">Arrendar ahora</span>
+        <div class="eq-photo-wrap">
+          <img class="eq-photo" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-esfuerzo.png" alt="Equipo para prueba de esfuerzo para arrendamiento médico">
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Equipo para prueba de esfuerzo</h3>
+        </div>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-ecocardiografo.png" alt="Ecocardiógrafo" onload="this.dataset.loaded='true'" onerror="this.remove()">
-        <div class="eq-empty">Ecocardiógrafo</div>
-        <span class="eq-cta">Arrendar ahora</span>
+        <div class="eq-photo-wrap">
+          <img class="eq-photo" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-monitor-signos.png" alt="Monitor de signos vitales para arrendamiento médico">
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Monitor de signos vitales</h3>
+        </div>
       </a>
 
       <a href="#formulario" class="eq-card">
-        <img src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/card-prueba-esfuerzo.png" alt="Sistema de prueba de esfuerzo (banda sinfín + ECG + software)" onload="this.dataset.loaded='true'" onerror="this.remove()">
-        <div class="eq-empty">Sistema de prueba de esfuerzo</div>
-        <span class="eq-cta">Arrendar ahora</span>
+        <div class="eq-photo-wrap">
+          <img class="eq-photo" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/equipo-ultrasonido-cardio.png" alt="Ultrasonido con software para cardiología para arrendamiento médico">
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Ultrasonido con software para cardio</h3>
+        </div>
       </a>
+
+      </div>
+      <button class="carousel-btn carousel-btn-next" type="button" aria-label="Ver más equipos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <script>
+(function() {
+  var carousel = document.querySelector('.equipos-carousel');
+  if (!carousel) return;
+  var grid = carousel.querySelector('.equipos-grid');
+  var btnPrev = carousel.querySelector('.carousel-btn-prev');
+  var btnNext = carousel.querySelector('.carousel-btn-next');
+  if (!grid || !btnPrev || !btnNext) return;
+  function getCardWidth() {
+    var card = grid.querySelector('.eq-card');
+    if (!card) return 260;
+    var gap = parseFloat(window.getComputedStyle(grid).gap) || 16;
+    return card.getBoundingClientRect().width + gap;
+  }
+  function updateButtons() {
+    var max = grid.scrollWidth - grid.clientWidth - 2;
+    btnPrev.disabled = grid.scrollLeft <= 2;
+    btnNext.disabled = grid.scrollLeft >= max;
+  }
+  btnPrev.addEventListener('click', function() { grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' }); });
+  btnNext.addEventListener('click', function() { grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' }); });
+  grid.addEventListener('scroll', updateButtons);
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+})();
+</script>
 
     
 
