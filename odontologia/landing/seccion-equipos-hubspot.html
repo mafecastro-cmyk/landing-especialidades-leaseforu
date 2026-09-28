@@ -1,0 +1,212 @@
+<!--
+  SECCIÓN DE EQUIPOS · ODONTOLOGIA · LeaseForU (Lorem Ipsum + placeholders)
+  Para pegar en un módulo custom de HubSpot (portal 19570866).
+  Cuando definas los equipos reales, cambia los <h3> y reemplaza los .eq-placeholder por <img class="eq-photo" src="URL" alt="...">.
+-->
+
+<style>
+    /* ========== SECTION LAYOUT ========== */
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .badge {
+      display: inline-block; background: #E0F0FF; color: var(--blue-mid);
+      padding: 6px 16px; border-radius: 20px; font-size: 11px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .s-title { font-size: 34px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; text-wrap: balance; }
+    .s-title span { color: var(--blue-mid); }
+    .s-sub { font-size: 15px; color: var(--gray-500); max-width: 580px; line-height: 1.7; font-weight: 400; text-wrap: pretty; }
+
+    /* ========== EQUIPOS (carrusel + cards edge-to-edge) ========== */
+    .equipos { background: var(--gray-50); overflow: hidden; }
+    .equipos .section-inner { text-align: center; position: relative; }
+    .equipos .s-sub { margin: 0 auto 40px; max-width: 760px; }
+
+    .equipos-carousel { position: relative; margin: 0 -8px; }
+    .equipos-carousel .equipos-grid {
+      display: flex; gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 8px;
+      margin: 0;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .equipos-carousel .equipos-grid::-webkit-scrollbar { display: none; }
+    .equipos-carousel .eq-card { flex: 0 0 calc((100% - 48px) / 4); scroll-snap-align: start; }
+
+    .eq-card {
+      position: relative; display: flex; flex-direction: column;
+      aspect-ratio: 260 / 340;
+      padding: 10px 10px 14px;
+      border-radius: 22px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 20px rgba(11,29,58,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+    .eq-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(11,29,58,0.18);
+    }
+    .eq-photo-wrap {
+      position: relative; flex: 1; min-height: 0;
+      border-radius: 16px; overflow: hidden;
+      background: linear-gradient(160deg, #0B1D3A 0%, #0277D9 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .eq-card:nth-child(even) .eq-photo-wrap {
+      background: linear-gradient(160deg, #DCEBFA 0%, #B4D6F5 100%);
+    }
+    .eq-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .eq-placeholder {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%; padding: 14px;
+    }
+    .eq-placeholder svg { filter: drop-shadow(0 6px 14px rgba(0,0,0,0.30)); }
+    .eq-card:nth-child(even) .eq-placeholder svg > * { fill-opacity: 0.5; }
+    .eq-footer {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 14px 6px 0;
+      flex-shrink: 0;
+    }
+    .eq-title {
+      font-size: 16px; font-weight: 500; line-height: 1.3;
+      color: var(--gray-900); letter-spacing: -0.2px;
+      text-align: left; text-wrap: balance;
+      margin: 0;
+      font-family: var(--font);
+    }
+
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--white); border: 1px solid var(--gray-200);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(11,29,58,0.12);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+      z-index: 10; color: var(--blue-dark); padding: 0;
+    }
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--blue-mid); border-color: var(--blue-mid); color: var(--white);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .carousel-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .carousel-btn svg { width: 20px; height: 20px; }
+    .carousel-btn-prev { left: -12px; }
+    .carousel-btn-next { right: -12px; }
+
+    @media (max-width: 1024px) {
+      .equipos-carousel .eq-card { flex: 0 0 calc((100% - 32px) / 3); }
+      .carousel-btn-prev { left: 4px; }
+      .carousel-btn-next { right: 4px; }
+    }
+    @media (max-width: 768px) {
+      .equipos-carousel .eq-card { flex: 0 0 calc((100% - 16px) / 2); }
+      .carousel-btn { width: 38px; height: 38px; }
+      .carousel-btn svg { width: 16px; height: 16px; }
+    }
+    @media (max-width: 480px) {
+      .equipos-carousel .eq-card { flex: 0 0 78%; scroll-snap-align: center; }
+      .carousel-btn { display: none; }
+    }
+</style>
+
+<!-- SECCIÓN DE EQUIPOS -->
+<section class="section equipos" id="equipos">
+  <div class="section-inner">
+    <div class="badge">Arrendamiento médico</div>
+    <h2 class="s-title">Equipos de <span>odontología</span><br>que podrías arrendar</h2>
+    <p class="s-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Financiamos la tecnología médica que elijas con el distribuidor de tu preferencia.</p>
+
+    <div class="equipos-carousel">
+      <button class="carousel-btn carousel-btn-prev" type="button" aria-label="Ver equipos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="equipos-grid">
+
+      <a href="#formulario" class="eq-card">
+        <div class="eq-photo-wrap">
+          <div class="eq-placeholder" role="img" aria-label="Lorem ipsum equipo médico placeholder"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%"><rect x="40" y="50" width="120" height="80" rx="8" fill="#F1F5F9" opacity="0.9"/><rect x="55" y="65" width="90" height="50" rx="4" fill="#CBD5E1" opacity="0.7"/><circle cx="100" cy="90" r="14" fill="#94A3B8"/><rect x="60" y="145" width="80" height="10" rx="2" fill="#F1F5F9" opacity="0.85"/><rect x="55" y="160" width="90" height="8" rx="2" fill="#CBD5E1" opacity="0.7"/></svg></div>
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Lorem ipsum dolor</h3>
+        </div>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <div class="eq-photo-wrap">
+          <div class="eq-placeholder" role="img" aria-label="Consectetur adipiscing equipo médico placeholder"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%"><rect x="40" y="50" width="120" height="80" rx="8" fill="#F1F5F9" opacity="0.9"/><rect x="55" y="65" width="90" height="50" rx="4" fill="#CBD5E1" opacity="0.7"/><circle cx="100" cy="90" r="14" fill="#94A3B8"/><rect x="60" y="145" width="80" height="10" rx="2" fill="#F1F5F9" opacity="0.85"/><rect x="55" y="160" width="90" height="8" rx="2" fill="#CBD5E1" opacity="0.7"/></svg></div>
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Consectetur adipiscing</h3>
+        </div>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <div class="eq-photo-wrap">
+          <div class="eq-placeholder" role="img" aria-label="Sed do eiusmod equipo médico placeholder"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%"><rect x="40" y="50" width="120" height="80" rx="8" fill="#F1F5F9" opacity="0.9"/><rect x="55" y="65" width="90" height="50" rx="4" fill="#CBD5E1" opacity="0.7"/><circle cx="100" cy="90" r="14" fill="#94A3B8"/><rect x="60" y="145" width="80" height="10" rx="2" fill="#F1F5F9" opacity="0.85"/><rect x="55" y="160" width="90" height="8" rx="2" fill="#CBD5E1" opacity="0.7"/></svg></div>
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Sed do eiusmod tempor</h3>
+        </div>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <div class="eq-photo-wrap">
+          <div class="eq-placeholder" role="img" aria-label="Ut labore equipo médico placeholder"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%"><rect x="40" y="50" width="120" height="80" rx="8" fill="#F1F5F9" opacity="0.9"/><rect x="55" y="65" width="90" height="50" rx="4" fill="#CBD5E1" opacity="0.7"/><circle cx="100" cy="90" r="14" fill="#94A3B8"/><rect x="60" y="145" width="80" height="10" rx="2" fill="#F1F5F9" opacity="0.85"/><rect x="55" y="160" width="90" height="8" rx="2" fill="#CBD5E1" opacity="0.7"/></svg></div>
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Ut labore et dolore</h3>
+        </div>
+      </a>
+
+      <a href="#formulario" class="eq-card">
+        <div class="eq-photo-wrap">
+          <div class="eq-placeholder" role="img" aria-label="Quis nostrud equipo médico placeholder"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%"><rect x="40" y="50" width="120" height="80" rx="8" fill="#F1F5F9" opacity="0.9"/><rect x="55" y="65" width="90" height="50" rx="4" fill="#CBD5E1" opacity="0.7"/><circle cx="100" cy="90" r="14" fill="#94A3B8"/><rect x="60" y="145" width="80" height="10" rx="2" fill="#F1F5F9" opacity="0.85"/><rect x="55" y="160" width="90" height="8" rx="2" fill="#CBD5E1" opacity="0.7"/></svg></div>
+        </div>
+        <div class="eq-footer">
+          <h3 class="eq-title">Quis nostrud exercitation</h3>
+        </div>
+      </a>
+
+      </div>
+      <button class="carousel-btn carousel-btn-next" type="button" aria-label="Ver más equipos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var carousel = document.querySelector('.equipos-carousel');
+  if (!carousel) return;
+  var grid = carousel.querySelector('.equipos-grid');
+  var btnPrev = carousel.querySelector('.carousel-btn-prev');
+  var btnNext = carousel.querySelector('.carousel-btn-next');
+  if (!grid || !btnPrev || !btnNext) return;
+
+  function getCardWidth() {
+    var card = grid.querySelector('.eq-card');
+    if (!card) return 260;
+    var gap = parseFloat(window.getComputedStyle(grid).gap) || 16;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function updateButtons() {
+    var max = grid.scrollWidth - grid.clientWidth - 2;
+    btnPrev.disabled = grid.scrollLeft <= 2;
+    btnNext.disabled = grid.scrollLeft >= max;
+  }
+
+  btnPrev.addEventListener('click', function() {
+    grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+  });
+  btnNext.addEventListener('click', function() {
+    grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+  });
+  grid.addEventListener('scroll', updateButtons);
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+})();
+</script>
