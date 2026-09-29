@@ -236,21 +236,22 @@
     return card.getBoundingClientRect().width + gap;
   }
 
-  function updateButtons() {
-    var max = grid.scrollWidth - grid.clientWidth - 2;
-    btnPrev.disabled = grid.scrollLeft <= 2;
-    btnNext.disabled = grid.scrollLeft >= max;
-  }
-
   btnPrev.addEventListener('click', function() {
-    grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+    var maxScroll = grid.scrollWidth - grid.clientWidth;
+    if (grid.scrollLeft <= 2) {
+      grid.scrollTo({ left: maxScroll, behavior: 'smooth' });
+    } else {
+      grid.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+    }
   });
   btnNext.addEventListener('click', function() {
-    grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+    var maxScroll = grid.scrollWidth - grid.clientWidth;
+    if (grid.scrollLeft >= maxScroll - 2) {
+      grid.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      grid.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+    }
   });
-  grid.addEventListener('scroll', updateButtons);
-  window.addEventListener('resize', updateButtons);
-  updateButtons();
 })();
 </script>
 
