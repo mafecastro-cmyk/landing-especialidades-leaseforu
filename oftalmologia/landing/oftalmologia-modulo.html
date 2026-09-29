@@ -176,28 +176,165 @@
       text-shadow: 0 1px 6px rgba(0,0,0,0.5);
     }
 
-    /* ========== COMPARATIVA ========== */
+    /* ========== COMPARATIVA (tabla HTML) ========== */
     .comparativa { background: var(--gray-50); }
     .comparativa .section-inner { text-align: center; }
     .comparativa .s-sub { margin: 0 auto 40px; max-width: 900px; }
-    .tabla-img {
-      max-width: 900px; margin: 0 auto;
-      border-radius: 16px; overflow: hidden;
+
+    .tabla-comparativa {
+      max-width: 1000px; margin: 0 auto;
+      background: var(--white); border-radius: 20px;
+      overflow: hidden;
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      font-family: var(--font);
     }
-    .tabla-img img {
-      width: 100%; display: block;
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: high-quality;
+    .tabla-comparativa .row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      align-items: stretch;
+      gap: 8px;
+      padding: 4px;
     }
-    .tabla-img .tabla-mobile { display: none; }
+    .tabla-comparativa .cell {
+      padding: 18px 14px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      font-size: 13px;
+    }
+    /* Etiqueta de la fila (columna izquierda) — azul vivo, esquinas redondeadas, texto regular */
+    .tabla-comparativa .row-label {
+      background: linear-gradient(180deg, #00A9FF 0%, #0277D9 55%, #0277D9 100%);
+      color: var(--white);
+      font-weight: 400; font-size: 14px;
+      text-align: left; align-items: flex-start;
+      padding: 18px 20px; line-height: 1.35;
+      border-radius: 12px;
+    }
+    .tabla-comparativa .row:first-child .row-label {
+      background: transparent;
+    }
+
+    /* Header top row */
+    .tabla-comparativa .row-header .col-arrendar {
+      background: linear-gradient(180deg, #00A9FF 0%, #0277D9 55%, #0277D9 100%);
+      color: var(--white);
+      font-weight: 400; font-size: 14px; letter-spacing: 0.5px;
+      line-height: 1.25;
+      border-radius: 12px;
+    }
+    .tabla-comparativa .row-header .col-credito,
+    .tabla-comparativa .row-header .col-compra {
+      background: linear-gradient(180deg, #1E3A6B 0%, #0B1D3A 100%);
+      color: var(--white);
+      font-weight: 400; font-size: 14px; letter-spacing: 0.5px;
+      line-height: 1.25;
+      border-radius: 12px;
+    }
+    .tabla-comparativa .row-header .cell { padding: 20px 14px; }
+
+    /* Columna ARRENDAR (data cells) — fondo suave */
+    .tabla-comparativa .row:not(.row-header) .col-arrendar {
+      background: #EAF6FE;
+      border-radius: 10px;
+    }
+
+    /* Iconos */
+    .tabla-icon { width: 34px; height: 34px; display: block; }
+    .cell small {
+      display: block; margin-top: 8px;
+      color: var(--gray-500); font-size: 11px; font-style: italic;
+      line-height: 1.35; font-weight: 400;
+    }
+
+    /* Chips fila Liquidez con degradado */
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 12px;
+      font-weight: 400; font-size: 13px; color: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      min-width: 140px; justify-content: center;
+    }
+    .chip svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .chip-green { background: linear-gradient(180deg, #34D368 0%, #16A34A 100%); }
+    .chip-dark  { background: linear-gradient(180deg, #1E3A6B 0%, #0B1D3A 100%); }
+
+    /* MOBILE: cards apiladas + accordion en las 2 últimas */
     @media (max-width: 768px) {
-      .tabla-img { max-width: 480px; }
-      .tabla-img .tabla-desktop { display: none; }
-      .tabla-img .tabla-mobile { display: block; }
+      .tabla-comparativa {
+        background: transparent; box-shadow: none; overflow: visible;
+        display: flex; flex-direction: column; gap: 14px; padding: 0;
+      }
+      .tabla-comparativa .row-header,
+      .tabla-comparativa .row { display: none; }
+
+      .tabla-mobile-cards { display: flex; flex-direction: column; gap: 14px; }
+      .tabla-card-mobile {
+        background: var(--white); border-radius: 18px; overflow: hidden;
+        box-shadow: 0 6px 24px rgba(11,29,58,0.08);
+      }
+      .tabla-card-header {
+        padding: 18px 20px; text-align: left;
+        color: var(--white); font-weight: 400; font-size: 15px;
+        letter-spacing: 0.5px; line-height: 1.3;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px;
+      }
+      .tabla-card-header.arrendar { background: linear-gradient(180deg, #00A9FF 0%, #0277D9 55%, #0277D9 100%); }
+      .tabla-card-header.credito,
+      .tabla-card-header.compra   { background: linear-gradient(180deg, #1E3A6B 0%, #0B1D3A 100%); }
+      .tabla-card-header .header-title { flex: 1; }
+      .tabla-chevron {
+        width: 22px; height: 22px; flex-shrink: 0;
+        transition: transform .25s ease;
+      }
+      .tabla-card-mobile[data-open="true"] .tabla-chevron { transform: rotate(180deg); }
+
+      /* Accordion trigger sólo en credito/compra */
+      .tabla-card-header.arrendar { cursor: default; }
+      .tabla-card-header.credito,
+      .tabla-card-header.compra { cursor: pointer; user-select: none; }
+      .tabla-card-header.arrendar .tabla-chevron { display: none; }
+
+      /* Body: ARRENDAR siempre visible; los otros dependen de data-open */
+      .tabla-card-body {
+        padding: 8px 14px 14px;
+      }
+      .tabla-card-mobile.collapsible .tabla-card-body {
+        display: none;
+      }
+      .tabla-card-mobile.collapsible[data-open="true"] .tabla-card-body {
+        display: block;
+      }
+
+      .tabla-card-item {
+        display: grid; grid-template-columns: 1fr auto;
+        align-items: center; gap: 10px;
+        padding: 12px 6px; border-bottom: 1px solid #E2E8F0;
+        text-align: left;
+      }
+      .tabla-card-item:last-child { border-bottom: none; }
+      .tabla-card-item .label {
+        font-size: 13px; font-weight: 400; color: var(--gray-900); line-height: 1.35;
+      }
+      .tabla-card-item .label small {
+        display: block; color: var(--gray-500); font-size: 11px;
+        font-style: italic; font-weight: 400; margin-top: 3px;
+      }
+      .tabla-card-item .value {
+        display: flex; align-items: center; justify-content: flex-end;
+      }
+      .tabla-card-item .value .tabla-icon { width: 28px; height: 28px; }
+      .tabla-card-item .chip { padding: 9px 16px; font-size: 12px; min-width: 120px; }
+      .tabla-card-item .chip svg { width: 13px; height: 13px; }
+
+      .tabla-desktop-only { display: none !important; }
+    }
+    @media (min-width: 769px) {
+      .tabla-mobile-cards { display: none; }
     }
 
     
+
     /* ========== EQUIPOS (carrusel + cards edge-to-edge) ========== */
     .equipos { background: var(--gray-50); overflow: hidden; }
     .equipos .section-inner { text-align: center; position: relative; }
@@ -622,10 +759,152 @@
   <div class="section-inner">
     <h2 class="s-title"><span>Inversión inteligente</span> para tu práctica médica</h2>
     <p class="s-sub comparativa-sub">Descubre los beneficios del arrendamiento con Lease For U y compara cómo puede ayudarte<br class="br-desktop">a mantener tu liquidez mientras haces crecer tu consultorio.</p>
-    <div class="tabla-img">
-      <img class="tabla-desktop" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra.png" alt="Comparativa: Arrendar con Lease For U vs Crédito Bancario vs Compra de Contado">
-      <img class="tabla-mobile" src="https://19570866.fs1.hubspotusercontent-na1.net/hubfs/19570866/leasing-vs-compra-mobile.png" alt="Comparativa (mobile)">
+    <div class="tabla-comparativa tabla-desktop-only">
+      <div class="row row-header">
+        <div class="cell row-label"></div>
+        <div class="cell col-arrendar">ARRENDAR<br>(LEASE FOR U)</div>
+        <div class="cell col-credito">CRÉDITO<br>BANCARIO</div>
+        <div class="cell col-compra">COMPRA DE<br>CONTADO</div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">0% de enganche</div>
+        <div class="cell col-arrendar"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><small>*Disponible para algunos equipos</small></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">Mensualidades ajustadas a tu práctica médica</div>
+        <div class="cell col-arrendar"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">Pagos 100% deducibles de impuestos</div>
+        <div class="cell col-arrendar"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">Seguro del equipo incluido</div>
+        <div class="cell col-arrendar"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">Propiedad del equipo</div>
+        <div class="cell col-arrendar"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><small>*Adquisición al término del contrato</small></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cell"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="row">
+        <div class="cell row-label">Liquidez</div>
+        <div class="cell col-arrendar"><span class="chip chip-green"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17l6-6 4 4 6-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h6v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Se conserva</span></div>
+        <div class="cell"><span class="chip chip-dark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l6 6 4-4 6 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 17h6v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Reducida</span></div>
+        <div class="cell"><span class="chip chip-dark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l6 6 4-4 6 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 17h6v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Se pierde</span></div>
+      </div>
     </div>
+
+    <div class="tabla-mobile-cards">
+      <div class="tabla-card-mobile" data-open="true">
+        <div class="tabla-card-header arrendar"><span class="header-title">ARRENDAR (LEASE FOR U)</span></div>
+        <div class="tabla-card-body">
+        <div class="tabla-card-item">
+          <div class="label">0% de enganche<small>*Disponible para algunos equipos</small></div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Mensualidades ajustadas a tu práctica médica</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Pagos 100% deducibles de impuestos</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Seguro del equipo incluido</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Propiedad del equipo<small>*Adquisición al término del contrato</small></div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22C55E"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Liquidez</div>
+          <div class="value"><span class="chip chip-green"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17l6-6 4 4 6-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h6v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Se conserva</span></div>
+        </div>
+        </div>
+      </div>
+      <div class="tabla-card-mobile collapsible" data-open="false">
+        <div class="tabla-card-header credito"><span class="header-title">CRÉDITO BANCARIO</span><svg class="tabla-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="tabla-card-body">
+        <div class="tabla-card-item">
+          <div class="label">0% de enganche</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Mensualidades ajustadas a tu práctica médica</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Pagos 100% deducibles de impuestos</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Seguro del equipo incluido</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Propiedad del equipo</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Liquidez</div>
+          <div class="value"><span class="chip chip-dark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l6 6 4-4 6 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 17h6v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Reducida</span></div>
+        </div>
+        </div>
+      </div>
+      <div class="tabla-card-mobile collapsible" data-open="false">
+        <div class="tabla-card-header compra"><span class="header-title">COMPRA DE CONTADO</span><svg class="tabla-chevron" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="tabla-card-body">
+        <div class="tabla-card-item">
+          <div class="label">0% de enganche</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Mensualidades ajustadas a tu práctica médica</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Pagos 100% deducibles de impuestos</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Seguro del equipo incluido</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0B1D3A"/><path d="M11 11l10 10M21 11L11 21" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Propiedad del equipo</div>
+          <div class="value"><svg class="tabla-icon" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0277D9"/><path d="M10 16.5l4 4 8-9" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="tabla-card-item">
+          <div class="label">Liquidez</div>
+          <div class="value"><span class="chip chip-dark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7l6 6 4-4 6 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 17h6v-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Se pierde</span></div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var headers = document.querySelectorAll('.tabla-card-mobile.collapsible .tabla-card-header');
+      headers.forEach(function(h){
+        h.addEventListener('click', function(){
+          var card = h.closest('.tabla-card-mobile');
+          if (!card) return;
+          card.setAttribute('data-open', card.getAttribute('data-open') === 'true' ? 'false' : 'true');
+        });
+      });
+    })();
+    </script>
   </div>
 </section>
 
